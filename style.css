@@ -1,0 +1,28 @@
+body{
+min-height: 100vh; /*vh: area visible del browser*/
+}
+header{
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+h2{
+    margin: 0%;
+    color: white;
+}
+main{
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: beige;
+    display: flex; /*coloca a los hijos directos del main (la imagen y el div) uno al lado del otro*/
+    gap: 30px;
+}
+#imagen{
+width: 200px;
+}
+#adivina_la_palabra span{
+    font-size: 2em;
+    border-bottom: 2px solid black;
+}
