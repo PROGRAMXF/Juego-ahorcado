@@ -12,10 +12,11 @@ h2{
     color: white;
 }
 main{
-    width: 80%;
-    margin: auto;
+    margin-top: 7rem;
+    margin-left: 10rem;
+    width: 80%;    
     padding: 20px;
-    background-color: beige;
+    background-color: beige;    
     display: flex; /*coloca a los hijos directos del main (la imagen y el div) uno al lado del otro*/
     gap: 30px;
 }
