@@ -22,7 +22,29 @@ main{
 #imagen{
 width: 200px;
 }
-#adivina_la_palabra span{
-    font-size: 2em;
+#adivina_la_palabra span{    
+    vertical-align: bottom;
+    font-size: 3em;
     border-bottom: 2px solid black;
+    width: 30px;
+    text-align: center;
+    margin-right: 6px;
+    display: inline-block;
+}
+#jugar{
+    padding: .5rem;
+    margin-bottom: 7px;
+}
+
+#letras{
+    
+    margin-top: 7px;
+    display: flex;
+    gap: 7px;
+}
+#letras button{
+    padding: 5.5px 0;
+    width: 25px;
+    height: 25px;
+    text-align: center;
 }
