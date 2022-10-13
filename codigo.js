@@ -17,27 +17,21 @@ const palabras = [
 const btn = document.getElementById("jugar");
 btn.addEventListener("click", iniciar); //iniciar es la funcion que hacemos referencia abajo
 
-console.log(btn);
-
-
-function obtener_random (num_min, num_max){    
-    const amplitud_valores = num_max - num_min; // valor mas alto - valor mas bajo del random, en este caso
-    //11-0
-    const valor_azar = Math.floor(Math.random() * amplitud_valores) + num_min; //variable que toma una de las palabras al azar.
-    //El problema del random de js es
-    //que genera valores aleatorios entre 0 y 1. Para solucionar esto multiplicamos
-    //el random por la amplitud de valores que es la diferencia de valores entre
-    //el numero mas alto y el mas bajo y esto lo tengo que redondear con el math.floor
-  
-    //el floor redondea para abajo, sino me saltaria un elemento 12 que no existe.
-    
-    return valor_azar;
-}
-
 function iniciar(event) {
-  const cantidad_palabras = palabras.length; //variables que nos cuenta la cantidad de palabras del array
-  const valor_masbajo = 0; //el indice mas bajo del array
-  const valor_azar = obtener_random(valor_masbajo, cantidad_palabras);
+  const parrafo = id('adivina_la_palabra');
+  const cantidad_palabras = palabras.length; // 1 - cuando aprete adivinar palabra va a sacar un valor al azar
+                                            //variables que nos cuenta la cantidad de palabras del array  
 
-  console.log(valor_azar);
+  const valor_azar = obtener_random(0, cantidad_palabras);
+  
+  const palabrita = palabras [valor_azar]; // 2 va a buscar una palabrita al azar
+  console.log(palabrita); //3 - me va a mostrar por consola la palabrita que tengo que adivinar
+  const cant_letras = palabrita.length;//con el punto length me doy cuenta y creo la cantidad de caracteres de palabrita, osea 
+  // de los span de cada palabra.
+
+  for(let i = 0; i < cant_letras; i++){
+    const span = document.createElement('span'); // 4 - creamos una etiqueta span vacia por cada letra que tenga la palabra
+    parrafo.appendChild(span); //al parrafo le agregamos un span
+  }
+  
 }
