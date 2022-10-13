@@ -1,4 +1,6 @@
 let palabrita;
+let cantidad_errores = 0; //cuantas veces me equivoque
+let cantidad_aciertos = 0;//cuantas veces acerte
 const palabras = [
   //indices del array:
   "naranja", //0
@@ -20,6 +22,9 @@ btn.addEventListener("click", iniciar); //iniciar es la funcion que hacemos refe
 
 function iniciar(event) {
   btn.disabled = true; //el boton no se puede tocar de vuelta
+
+  cantidad_errores = 0; //cuantas veces me equivoque
+ cantidad_aciertos = 0;//cuantas veces acerte
 
   const parrafo = id('adivina_la_palabra');
   parrafo.innerHTML = ''; //me vacia los span para que no se acumulen cuando hago click
@@ -48,7 +53,36 @@ for(let i = 0; i < btn_letras.length; i++){ // funcion que recorre letra por let
 }
 
 function clickear_letras(event){// el event lo necesito para saber que letra toque para llamar a la funcion
+  const spans = document.querySelectorAll('#adivina_la_palabra span');
   const button = event.target
   button.disabled = true; //una vez que toque la letra el boton de la letra se desabilita
-  console.log(palabrita);
+  const letra = button.innerHTML.toLowerCase(); //va cambiando la letra entre span y span
+  const palabra = palabrita.toLowerCase(); //me nivela las letras todas a minuscula
+
+  //ahora vamos a recorrer todos los caracteres de la palabra para ver si existe la letra:
+
+  let acerto = false; //asumimos que la letra elejida no existe
+
+  //para saber si existe o no existe la letra en la palabra lo hacemos con un for para recorrer desde 0
+  //hasta la cantidad de caracteres que tiene la palabra (para js cualquier cadena de caracteres es un array de caracteres)
+
+  for(let i = 0; i < palabra.length; i++){//la i del bucle for me va a servir para saber en que span tednria que mostrar
+    //la letra en el caso de que existiera
+
+    //ahora nos preguntamos si la letra que recivi existe en el caracter que estoy recorriendo la palabra
+    if(letra == palabra[i]){
+      //la variables i es la posicion de la letra en la palabra que coincide con el span al que tenemos
+      //que mostrarle esta letra
+      spans[i].innerHTML = letra;
+      cantidad_aciertos++;
+
+      acerto = true;
+    }
+    else{
+      cantidad_errores++;
+    }
+  }
+
+
+  console.log("la letra " + letra + " en la palabra " + palabra + " existe?:" +  acerto);
 }
