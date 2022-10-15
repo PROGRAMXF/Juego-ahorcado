@@ -19,9 +19,9 @@ const palabras = [
   "aviones", //11
 ];
 
-const btn = id("jugar");
+const btn = id('jugar');
 const imagen = id( 'imagen' );
-const btn_letras = document.querySelectorAll("#letras");
+const btn_letras = document.querySelectorAll("#letras button");
 
 //con el click se inicia el juego
 btn.addEventListener('click', iniciar); //iniciar es la funcion que hacemos referencia abajo
