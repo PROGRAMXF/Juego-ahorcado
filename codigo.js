@@ -17,6 +17,16 @@ const palabras = [
   "invierno", //9
   "cocina", //10
   "aviones", //11
+  "television",//12
+  "futbolista",//13
+  "primavera",//14
+  "calculadora",//15
+  "logaritmo",//16
+  "candelario",//17
+  "tractor",//18
+  "jupiter",//19
+  "desayuno",//20
+  "provincia"//21
 ];
 
 const btn = id('jugar');
@@ -29,6 +39,7 @@ btn.addEventListener('click', iniciar); //iniciar es la funcion que hacemos refe
 
 function iniciar(event) {
   imagen.src = 'img/img0.jpg';
+  id('resultado').innerHTML = ""; //limpia el mensaje de ganar o perder cuando se pulsa para jugar otra vez
   btn.disabled = true; //el boton no se puede tocar de vuelta
   cantidad_errores = 0; //cuantas veces me equivoque
   cantidad_aciertos = 0; //cuantas veces acerte
@@ -100,12 +111,12 @@ function clickear_letras(event) {
       imagen.src = source; //y cambiame el source
     }
     if(cantidad_errores == 7){
-      id('resultado').innerHTML = "Perdiste. La palabra era: "  + palabrita;
+      id('resultado').innerHTML = "Perdiste, la palabra era: "  + palabrita;
       game_over();
       
     }
     else if(cantidad_aciertos == palabrita.length){      
-      id('resultado').innerHTML = "GANASTE!!!!";
+      id('resultado').innerHTML = "!!!!GANASTE!!!!";
 
       //creo una variable para mostrar el gif cuando gano
       var win = document.getElementById('imagen')
